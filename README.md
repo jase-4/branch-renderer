@@ -1,16 +1,24 @@
-Currently just an OpenGL Renderer with plans to eventually add scripting in Lua\n
-Created this to maek in eassier to include in othe rpoject that need rendering and to make trying new idea easier\n\n
+# OpenGL renderer
 
-TODO first:\n
-    redo model loading\n
-    clean out test shaders from shader folder\n
-    create a new system to manage all systems in renderer\n
-    rewrite main renderer logic\n
-    create OpenGL wrappers\n
-    clean up commented out code and other comment\n\n
+Created this to make in easier to include in other projects that need rendering and to make trying new ideas easier.
 
-Future:\n
-      add scripting with Lua\n
-      add post processing effects\n
-      add instancing\n
-    
+---
+
+ TODO 
+
+-  redo model loading system  
+-  remove test shaders from the shadersfolder  
+-  implement a central system manager for all renderer subsystems  
+-  rewrite the main rendering loop  
+-  create OpenGL wrapper  
+-  clean up commented out code and old comments  
+
+---
+
+future plans
+
+-  add Lua scripting support  
+-  implement post-processing effects 
+-  add instancing support for efficient rendering  
+
+---
