@@ -142,12 +142,7 @@ MeshComponent processMesh(aiMesh *mesh, const aiScene *scene)
     }
     // process materials
     aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];    
-    // we assume a convention for sampler names in the shaders. Each diffuse texture should be named
-    // as 'texture_diffuseN' where N is a sequential number ranging from 1 to MAX_SAMPLER_NUMBER. 
-    // Same applies to other texture as the following list summarizes:
-    // diffuse: texture_diffuseN
-    // specular: texture_specularN
-    // normal: texture_normalN
+  
 
     // 1. diffuse maps
    std::vector<TextureComponent> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
@@ -180,9 +175,7 @@ void setupMesh(MeshComponent &mesh)
         glBindVertexArray(mesh.VAO);
         // load data into vertex buffers
         glBindBuffer(GL_ARRAY_BUFFER, mesh.VBO);
-        // A great thing about structs is that their memory layout is sequential for all its items.
-        // The effect is that we can simply pass a pointer to the struct and it translates perfectly to a glm::vec3/2 array which
-        // again translates to 3/2 floats which translates to a byte array.
+      
         glBufferData(GL_ARRAY_BUFFER, mesh.vertices.size() * sizeof(Vertex), &mesh.vertices[0], GL_STATIC_DRAW);  
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.IBO);
@@ -216,21 +209,6 @@ void setupMesh(MeshComponent &mesh)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// checks all material textures of a given type and loads the textures if they're not loaded yet.
-// the required info is returned as a TextureComponent struct.
 std::vector<TextureComponent> loadMaterialTextures(aiMaterial *mat, aiTextureType type,  std::string typeName)
 {
     std::vector<TextureComponent> textures;
@@ -247,7 +225,7 @@ std::vector<TextureComponent> loadMaterialTextures(aiMaterial *mat, aiTextureTyp
         mat->GetTexture(type, i, &str);
 
         std::cout <<"This is a texture: " << str.C_Str() << std::endl;
-        // check if texture was loaded before and if so, continue to next iteration: skip loading a new texture
+     
         bool skip = false;
         std::cout << model.textures.size()  << std::endl;
 
@@ -260,21 +238,19 @@ std::vector<TextureComponent> loadMaterialTextures(aiMaterial *mat, aiTextureTyp
                 textures.push_back(model.textures[j]);
      //  std::cout <<" fgdgsgg " << std::endl;
 
-                skip = true; // a texture with the same filepath has already been loaded, continue to next one. (optimization)
+                skip = true; /
                 break;
             }
         }
         if(!skip)
-        {   // if texture hasn't been loaded already, load it
-       
-
+        { 
             TextureComponent texture;
             texture.id = TextureFromFile2(str.C_Str(), this->directory);
             std::cout <<" fgdgsgg " << std::endl;
             texture.type = typeName;
             texture.path = str.C_Str();
             textures.push_back(texture);
-            model.textures.push_back(texture);  // store it as texture loaded for entire model, to ensure we won't unnecessary load duplicate textures.
+            model.textures.push_back(texture); 
         }
     }
     return textures;

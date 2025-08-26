@@ -18,9 +18,7 @@ class Light
 {
 
 public:
-    //virtual void set_light_uniforms() const = 0;
-   // virtual std::vector<glm::mat4> gen_cubemap_transform() const = 0;
-
+   
     virtual glm::vec3 get_light_pos() const = 0;
     virtual void set_light_pos(glm::vec3 new_pos) = 0;
 

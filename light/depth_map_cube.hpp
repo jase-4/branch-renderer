@@ -10,7 +10,6 @@
 
 #include "depth_map.hpp"
 
-// DepthMapCubeMap class that inherits from DepthMap
 class DepthMapCubeMap : public DepthMap
 {
 private:

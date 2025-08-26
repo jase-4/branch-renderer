@@ -6,7 +6,7 @@ EntityManager& EntityManager::getInstance() {
 }
 
 EntityManager::EntityManager() {
-    // Optional: debug log
+   
     std::cout << "EntityManager initialized\n";
 }
 

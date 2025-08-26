@@ -3,22 +3,17 @@
 DepthMapCubeMap::DepthMapCubeMap()
     : SHADOW_WIDTH(1024), SHADOW_HEIGHT(1024), depthMapFBO(0), depthCubemap(0)
 {
-    // Constructor initialization (optional)
+   
 }
 
 void DepthMapCubeMap::init(unsigned int shadow_width, unsigned int shadow_height)
 {
     SHADOW_WIDTH = shadow_width;
     SHADOW_HEIGHT = shadow_height;
-
-    // Generate framebuffer
     glGenFramebuffers(1, &depthMapFBO);
-
-    // Create cube map texture
     glGenTextures(1, &depthCubemap);
-
-    gen_cube_map();               // Set texture parameters
-    bind_depth_to_frame_buf_return(); // Attach texture to framebuffer
+    gen_cube_map();              
+    bind_depth_to_frame_buf_return(); 
 }
 
 unsigned int DepthMapCubeMap::get_fbo() const
@@ -56,5 +51,5 @@ void DepthMapCubeMap::bind_depth_to_frame_buf_return()
 
 DepthMapCubeMap::~DepthMapCubeMap()
 {
-    // Cleanup resources if necessary
+  
 }

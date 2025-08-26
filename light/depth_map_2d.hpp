@@ -10,7 +10,7 @@
 
 #include "depth_map.hpp"
 
-// DepthMap2D class that inherits from DepthMap
+
 class DepthMap2D : public DepthMap
 {
 private:

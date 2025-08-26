@@ -25,22 +25,19 @@ public:
 
     template <typename... Components>
     std::vector<Entity::ID> getEntitiesWithComponents();
-
+    
     const std::vector<Entity>& getEntities() const;
-
-    // Rule of five (only keeping required for singleton)
     EntityManager(const EntityManager&) = delete;
     EntityManager& operator=(const EntityManager&) = delete;
     ~EntityManager() = default;
 
 private:
-    EntityManager(); // Private constructor
+    EntityManager();
 
     std::vector<Entity> entities;
     std::unordered_map<Entity::ID, std::unordered_map<std::type_index, std::shared_ptr<Component>>> components;
 };
 
-// Template implementations must remain in the header file.
 template <typename T>
 void EntityManager::addComponent(Entity::ID entityID, std::shared_ptr<T> component) {
     components[entityID][std::type_index(typeid(T))] = component;

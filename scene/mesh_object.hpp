@@ -33,7 +33,7 @@ public:
     }
 
     glm::vec3 get_position() {
-        return glm::vec3(model_matrix[3]); // Extracts the 4th column as a vec3
+        return glm::vec3(model_matrix[3]); 
     }
 
     void translate(float x, float y, float z){
@@ -57,12 +57,6 @@ public:
     }
 };
 
-MeshObject::MeshObject(string const &path) : model(path) {
-    //model = Model(path);
-}
 
-MeshObject::~MeshObject()
-{
-}
 
 #endif

@@ -5,7 +5,6 @@
 #include "renderer/shader_manager.hpp"
 #include <memory>
 #include <glm/glm.hpp>
-//#include <GL/glew.h>
 #include <iostream>
 
 class DepthMap;

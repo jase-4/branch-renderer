@@ -57,7 +57,7 @@ std::vector<glm::mat4> PointLight::gen_cubemap_transform() {
 }
 
 void PointLight::set_light_shad_shader_vars(std::shared_ptr<Shader> shader) {
-    // Set variables for shader if necessary
+   //add this later if needed
 }
 
 void PointLight::print_glm(glm::vec3 pos) {

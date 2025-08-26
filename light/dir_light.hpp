@@ -5,7 +5,7 @@
 #include "renderer/shader_manager.hpp"
 #include <memory>
 #include <glm/glm.hpp>
-//#include <GL/glew.h>  // For GLuint
+
 
 class DepthMap;
 class DepthMap2D;

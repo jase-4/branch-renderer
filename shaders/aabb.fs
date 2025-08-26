@@ -1,7 +1,7 @@
 #version 330 core
 out vec4 FragColor;
 
-uniform vec3 lineColor;  // Color passed from the CPU
+uniform vec3 lineColor; 
 
 void main()
 {

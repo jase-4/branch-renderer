@@ -3,7 +3,7 @@
 DepthMap2D::DepthMap2D()
     : SHADOW_WIDTH(1024), SHADOW_HEIGHT(1024), depthMapFBO(0), depth_map_2d(0)
 {
-    // Constructor implementation (optional initialization if needed)
+   
 }
 
 void DepthMap2D::init(unsigned int shadow_width, unsigned int shadow_height)
@@ -11,14 +11,14 @@ void DepthMap2D::init(unsigned int shadow_width, unsigned int shadow_height)
     SHADOW_WIDTH = shadow_width;
     SHADOW_HEIGHT = shadow_height;
 
-    // Generate framebuffer
+   
     glGenFramebuffers(1, &depthMapFBO);
 
-    // Create 2D depth texture
+   
     glGenTextures(1, &depth_map_2d);
 
-    gen_cube_map();          // Set texture parameters
-    bind_depth_to_frame_buf_return(); // Attach texture to framebuffer
+    gen_cube_map();         
+    bind_depth_to_frame_buf_return(); 
 }
 
 unsigned int DepthMap2D::get_fbo() const
@@ -55,5 +55,5 @@ void DepthMap2D::bind_depth_to_frame_buf_return()
 
 DepthMap2D::~DepthMap2D()
 {
-    // Cleanup resources if necessary
+   
 }
